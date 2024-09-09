@@ -1,8 +1,13 @@
 "use client";
 
 import { useState } from "react";
+import { CardType } from "@/app/page";
 
-export default function Card({ cards }) {
+type Props = {
+  cards: CardType[];
+};
+
+export default function Card({ cards }: Props) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentIndex2, setCurrentIndex2] = useState(1);
   const [rotationAngle, setRotationAngle] = useState(0);
