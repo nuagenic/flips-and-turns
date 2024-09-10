@@ -25,10 +25,11 @@ export default async function Home() {
       content,
     };
   });
+  const startIndex = Math.floor(Math.random() * cards.length);
 
   return (
     <main className="overflow-hidden w-full h-full">
-      <Card cards={cards} />
+      <Card cards={cards} startIndex={startIndex} />
     </main>
   );
 }

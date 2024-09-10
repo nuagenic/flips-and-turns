@@ -5,13 +5,14 @@ import { CardType } from "@/app/page";
 
 type Props = {
   cards: CardType[];
+  startIndex: number;
 };
 
-export default function Card({ cards }: Props) {
-  const [currentIndex, setCurrentIndex] = useState(0);
+export default function Card({ cards, startIndex }: Props) {
+  const [currentIndex, setCurrentIndex] = useState(startIndex);
   // 각 카드들의 회전 각도를 저장하는 state. 처음 렌더링에서 보여질 카드만 0도(앞면)로 설정.
   const [rotationAngles, setRotationAngles] = useState<number[]>(() =>
-    Array.from({ length: cards.length }, (_, i) => (i === 0 ? 0 : 180))
+    Array.from({ length: cards.length }, (_, i) => (i === startIndex ? 0 : 180))
   );
   const handleFlip = (event: React.MouseEvent<HTMLDivElement>) => {
     const cardWidth = event.currentTarget.offsetWidth;
