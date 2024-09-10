@@ -9,33 +9,54 @@ type Props = {
 
 export default function Card({ cards }: Props) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [currentIndex2, setCurrentIndex2] = useState(1);
-  const [rotationAngle, setRotationAngle] = useState(0);
+  // 각 카드들의 회전 각도를 저장하는 state. 처음 렌더링에서 보여질 카드만 0도(앞면)로 설정.
+  const [rotationAngles, setRotationAngles] = useState<number[]>(() =>
+    Array.from({ length: cards.length }, (_, i) => (i === 0 ? 0 : 180))
+  );
   const handleFlip = (event: React.MouseEvent<HTMLDivElement>) => {
     const cardWidth = event.currentTarget.offsetWidth;
-    event.clientX > cardWidth / 2
-      ? setRotationAngle((prevAngle) => prevAngle + 180)
-      : setRotationAngle((prevAngle) => prevAngle - 180);
-    setCurrentIndex((prevIndex) => prevIndex + 2);
-    setCurrentIndex2((prevIndex) => prevIndex + 2);
+    const newAngles = [...rotationAngles];
+
+    if (event.clientX > cardWidth / 2) {
+      // 화면 우측 클릭
+      if (currentIndex === cards.length - 1) return;
+      newAngles[currentIndex] += 180;
+      newAngles[currentIndex + 1] += 180;
+      setCurrentIndex((prevIndex) => prevIndex + 1);
+    } else {
+      // 화면 좌측 클릭
+      if (currentIndex === 0) return;
+      newAngles[currentIndex] -= 180;
+      newAngles[currentIndex - 1] -= 180;
+      setCurrentIndex((prevIndex) => prevIndex - 1);
+    }
+
+    setRotationAngles(newAngles);
   };
 
   return (
-    <div className="w-full h-full [perspective:1000px]" onClick={handleFlip}>
-      <div className="flex justify-center items-center w-full h-full transform transition-transform duration-700 ease-in-out [perspective:1000px]">
-        <div
-          className="absolute w-1/2vh h-1/2vh bg-red-100 text-white flex items-center justify-center [backface-visibility:hidden] transform transition-transform duration-700 ease-in-out"
-          style={{ transform: `rotateY(${rotationAngle}deg)` }}
-        >
-          <img src={cards[currentIndex].content} />
-        </div>
-        <div
-          className="absolute w-1/2vh h-1/2vh bg-blue-100 text-white flex items-center justify-center [backface-visibility:hidden] transform transition-transform duration-700 ease-in-out"
-          style={{ transform: `rotateY(${rotationAngle + 180}deg)` }}
-        >
-          <div>{cards[currentIndex2].content}</div>
-        </div>
-      </div>
+    <div
+      className="flex justify-center items-center w-full h-full [perspective:2000px]"
+      onClick={handleFlip}
+    >
+      {cards.map((card, index) => {
+        const rotationAngle = rotationAngles[index];
+
+        return (
+          <div
+            key={card.id}
+            className="absolute w-1/2vh h-1/2vh bg-red-100 text-white flex items-center justify-center [backface-visibility:hidden] transform transition-transform duration-1000 ease-in-out"
+            style={{ transform: `rotateY(${rotationAngle}deg)` }}
+          >
+            {/* 카드 타입에 따라 조건부 렌더링 */}
+            {card.type === "text" ? (
+              <div>{card.content}</div>
+            ) : (
+              <img src={card.content} />
+            )}
+          </div>
+        );
+      })}
     </div>
   );
 }
