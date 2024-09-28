@@ -11,10 +11,12 @@ const config: Config = {
       width: {
         vh: "100vh",
         "1/2vh": "50vh",
+        "3/4vh": "75vh",
       },
       height: {
         vh: "100vh",
         "1/2vh": "50vh",
+        "3/4vh": "75vh",
       },
       fontFamily: {
         KoPub: ["KoPubWorldBatang", "serif"],
