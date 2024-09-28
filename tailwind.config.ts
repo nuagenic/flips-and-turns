@@ -16,6 +16,9 @@ const config: Config = {
         vh: "100vh",
         "1/2vh": "50vh",
       },
+      fontFamily: {
+        KoPub: ["KoPubWorldBatang", "serif"],
+      },
     },
   },
   plugins: [],
