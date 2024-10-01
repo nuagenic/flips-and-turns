@@ -9,6 +9,7 @@ type Props = {
 };
 
 export default function Card({ cards, startIndex }: Props) {
+  console.log(startIndex);
   const [currentIndex, setCurrentIndex] = useState(startIndex);
   // 각 카드들의 회전 각도를 저장하는 state. 처음 렌더링에서 보여질 카드만 0도(앞면)로 설정.
   const [rotationAngles, setRotationAngles] = useState<number[]>(() =>
