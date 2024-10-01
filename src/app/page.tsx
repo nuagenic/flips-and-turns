@@ -2,7 +2,8 @@
  * Main page of the app.
  */
 
-import Card from "@/components/Card";
+// import Card from "@/components/Card";
+import RandomWrapper from "@/components/RandomWrapper";
 import { fetchCards } from "@/lib/fetchCards";
 
 export type CardType = {
@@ -25,11 +26,10 @@ export default async function Home() {
       content,
     };
   });
-  const startIndex = Math.floor(Math.random() * cards.length);
 
   return (
     <main className="overflow-hidden w-full h-full">
-      <Card cards={cards} startIndex={startIndex} />
+      <RandomWrapper cards={cards} />
     </main>
   );
 }
