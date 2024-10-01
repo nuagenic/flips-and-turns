@@ -25,7 +25,8 @@ export default async function Home() {
       content,
     };
   });
-  const startIndex = Math.floor(Math.random() * cards.length);
+  let startIndex = Math.floor(Math.random() * cards.length);
+  console.log(startIndex);
 
   return (
     <main className="overflow-hidden w-full h-full">
