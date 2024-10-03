@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { CardType } from "@/app/page";
+import Caption from "@/components/Caption";
 
 type Props = {
   cards: CardType[];
@@ -36,31 +37,34 @@ export default function Card({ cards, startIndex }: Props) {
   };
 
   return (
-    <div
-      className="flex justify-center items-center w-full h-full [perspective:2000px]"
-      onClick={handleFlip}
-    >
-      {cards.map((card, index) => {
-        const rotationAngle = rotationAngles[index];
+    <div className="flex flex-col justify-center w-full h-full">
+      <div
+        className="flex justify-center items-end flex-grow [perspective:2000px]"
+        onClick={handleFlip}
+      >
+        {cards.map((card, index) => {
+          const rotationAngle = rotationAngles[index];
 
-        return (
-          <div
-            key={card.id}
-            className="absolute w-3/4vh h-3/4vh bg-white text-black shadow-lg [backface-visibility:hidden] transform transition-transform duration-1000 ease-in-out"
-            style={{ transform: `rotateY(${rotationAngle}deg)` }}
-          >
-            {/* 카드 타입에 따라 조건부 렌더링 */}
-            {card.type === "text" ? (
-              <div
-                className="font-KoPub font-light w-full h-full"
-                dangerouslySetInnerHTML={{ __html: card.content }}
-              />
-            ) : (
-              <img src={card.content} />
-            )}
-          </div>
-        );
-      })}
+          return (
+            <div
+              key={card.id}
+              className="absolute w-3/4vh h-3/4vh bg-white text-black shadow-lg [backface-visibility:hidden] transform transition-transform duration-1000 ease-in-out"
+              style={{ transform: `rotateY(${rotationAngle}deg)` }}
+            >
+              {/* 카드 타입에 따라 조건부 렌더링 */}
+              {card.type === "text" ? (
+                <div
+                  className="font-KoPub font-light w-full h-full"
+                  dangerouslySetInnerHTML={{ __html: card.content }}
+                />
+              ) : (
+                <img src={card.content} />
+              )}
+            </div>
+          );
+        })}
+      </div>
+      <Caption cards={cards} currentIndex={currentIndex} />
     </div>
   );
 }
