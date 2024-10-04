@@ -30,7 +30,7 @@ export default function Caption({ cards, currentIndex }: Props) {
     cards.length;
 
   return (
-    <div className="flex justify-center mt-2 mb-10 text-sm font-medium whitespace-pre">
+    <div className="flex justify-center mt-2 text-sm font-medium whitespace-pre">
       {caption}
     </div>
   );
