@@ -49,7 +49,7 @@ export default function Card({ cards, startIndex }: Props) {
           return (
             <div
               key={card.id}
-              className="absolute w-3/4vh h-3/4vh bg-white text-black shadow-lg [backface-visibility:hidden] transform transition-transform duration-1000 ease-in-out"
+              className="absolute w-3/4vh h-3/4vh bg-white text-black shadow-lg [backface-visibility:hidden] transform transition-transform duration-1800 ease-in-out"
               style={{ transform: `rotateY(${rotationAngle}deg)` }}
             >
               {/* 카드 타입에 따라 조건부 렌더링 */}

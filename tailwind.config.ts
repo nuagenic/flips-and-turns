@@ -21,6 +21,11 @@ const config: Config = {
       fontFamily: {
         KoPub: ["KoPubWorldBatang", "serif"],
       },
+      transitionDuration: {
+        "1500": "1500ms",
+        "1800": "1800ms",
+        "2000": "2000ms",
+      },
     },
   },
   plugins: [],

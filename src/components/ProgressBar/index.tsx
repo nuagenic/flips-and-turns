@@ -34,7 +34,7 @@ export default function ProgressBar({ length, currentIndex }: Props) {
         ref={totalBar}
       >
         <div
-          className="relative bg-black h-2 border-none transform transition-transform duration-1000 ease-in-out"
+          className="relative bg-black h-2 border-none transform transition-transform duration-1800 ease-in-out"
           style={{
             width: segmentWidth,
             transform: `translateX(${segmentWidth * currentIndex}px)`,
