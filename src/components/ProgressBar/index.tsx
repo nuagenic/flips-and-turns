@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef, useEffect, useState } from "react";
-import { CardType } from "@/app/page";
 
 type Props = {
   length: number; // Cards Array의 전체 length를 의미함
@@ -27,8 +26,6 @@ export default function ProgressBar({ length, currentIndex }: Props) {
       window.removeEventListener("resize", updateSegmentWidth);
     };
   });
-
-  console.log(segmentWidth);
 
   return (
     <div className="flex justify-center items-start">
