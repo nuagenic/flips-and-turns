@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { CardType } from "@/app/page";
 import Caption from "@/components/Caption";
+import ProgressBar from "@/components/ProgressBar";
 
 type Props = {
   cards: CardType[];
@@ -37,7 +38,7 @@ export default function Card({ cards, startIndex }: Props) {
   };
 
   return (
-    <div className="flex flex-col justify-center w-full h-full">
+    <div className="flex flex-col w-full h-full">
       <div
         className="flex justify-center items-end flex-grow [perspective:2000px]"
         onClick={handleFlip}
@@ -65,6 +66,7 @@ export default function Card({ cards, startIndex }: Props) {
         })}
       </div>
       <Caption cards={cards} currentIndex={currentIndex} />
+      <ProgressBar length={cards.length} currentIndex={currentIndex} />
     </div>
   );
 }
