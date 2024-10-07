@@ -11,7 +11,7 @@ export default function Header() {
 
   return (
     <header>
-      <nav className="w-full flex justify-between p-4">
+      <nav className="flex w-full justify-between p-4">
         {tabs.map((tab, i) => {
           return (
             <Link href={tab.path} key={i}>

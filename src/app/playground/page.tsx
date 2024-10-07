@@ -129,7 +129,7 @@ export default function Playground() {
   ];
 
   return (
-    <main className="overflow-hidden w-full h-full">
+    <main className="h-full w-full overflow-hidden">
       <Card cards={testCards} startIndex={startIndex} />
     </main>
   );
