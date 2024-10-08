@@ -40,9 +40,9 @@ export default function Card({ cards, startIndex }: Props) {
   };
 
   return (
-    <div className="flex h-full w-full flex-col p-2">
+    <div className="flex h-full w-full flex-col items-center justify-center p-2 lg:p-0">
       <div
-        className="flex flex-grow items-end justify-center [perspective:2000px]"
+        className="flex aspect-square w-full items-center justify-center [perspective:2000px] lg:h-3/4vh lg:w-3/4vh"
         onClick={handleFlip}
       >
         {cards.map((card, index) => {
@@ -51,7 +51,7 @@ export default function Card({ cards, startIndex }: Props) {
           return (
             <div
               key={card.id}
-              className="absolute aspect-square w-full transform bg-white text-xs text-black shadow-lg transition-transform duration-1800 ease-in-out [backface-visibility:hidden] md:text-base lg:h-3/4vh lg:w-3/4vh"
+              className="absolute aspect-square w-full transform bg-white text-xs text-black shadow-lg transition-transform duration-1800 ease-in-out [backface-visibility:hidden] md:text-base"
               style={{ transform: `rotateY(${rotationAngle}deg)` }}
             >
               {/* 카드 타입에 따라 조건부 렌더링 */}
@@ -68,7 +68,7 @@ export default function Card({ cards, startIndex }: Props) {
         })}
       </div>
       <Caption cards={cards} currentIndex={currentIndex} />
-      <ProgressBar length={cards.length} currentIndex={currentIndex} />
+      {/* <ProgressBar length={cards.length} currentIndex={currentIndex} /> */}
     </div>
   );
 }
