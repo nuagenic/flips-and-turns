@@ -22,7 +22,8 @@ body {
   font-family: "KoPubWorldBatang";
   font-weight: 400;
   font-style: normal;
-  src: url("/fonts/KoPubWorld-Batang-Medium.woff2") format("woff2"),
+  src:
+    url("/fonts/KoPubWorld-Batang-Medium.woff2") format("woff2"),
     url("/fonts/KoPubWorld-Batang-Medium.woff") format("woff"),
     url("/fonts/KoPubWorldBatang-Medium.ttf") format("ttf");
 }
@@ -31,7 +32,8 @@ body {
   font-family: "KoPubWorldBatang";
   font-weight: 100;
   font-style: normal;
-  src: url("/fonts/KoPubWorld-Batang-Light.woff2") format("woff2"),
+  src:
+    url("/fonts/KoPubWorld-Batang-Light.woff2") format("woff2"),
     url("/fonts/KoPubWorld-Batang-Light.woff") format("woff"),
     url("/fonts/KoPubWorldBatang-Light.ttf") format("ttf");
 }
@@ -40,7 +42,8 @@ body {
   font-family: "KoPubWorldBatang";
   font-weight: 700;
   font-style: normal;
-  src: url("/fonts/KoPubWorld-Batang-Bold.woff2") format("woff2"),
+  src:
+    url("/fonts/KoPubWorld-Batang-Bold.woff2") format("woff2"),
     url("/fonts/KoPubWorld-Batang-Bold.woff") format("woff"),
     url("/fonts/KoPubWorldBatang-Bold.ttf") format("ttf");
 }

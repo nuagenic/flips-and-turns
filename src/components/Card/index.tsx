@@ -14,7 +14,9 @@ export default function Card({ cards, startIndex }: Props) {
   const [currentIndex, setCurrentIndex] = useState(startIndex);
   // 각 카드들의 회전 각도를 저장하는 state. 처음 렌더링에서 보여질 카드만 0도(앞면)로 설정.
   const [rotationAngles, setRotationAngles] = useState<number[]>(() =>
-    Array.from({ length: cards.length }, (_, i) => (i === startIndex ? 0 : 180))
+    Array.from({ length: cards.length }, (_, i) =>
+      i === startIndex ? 0 : 180,
+    ),
   );
   const handleFlip = (event: React.MouseEvent<HTMLDivElement>) => {
     const cardWidth = event.currentTarget.offsetWidth;
@@ -38,9 +40,9 @@ export default function Card({ cards, startIndex }: Props) {
   };
 
   return (
-    <div className="flex flex-col w-full h-full">
+    <div className="flex h-full w-full flex-col items-center justify-center p-2 lg:p-0">
       <div
-        className="flex justify-center items-end flex-grow [perspective:2000px]"
+        className="flex aspect-square w-full items-center justify-center [perspective:2000px] lg:h-3/4vh lg:w-3/4vh"
         onClick={handleFlip}
       >
         {cards.map((card, index) => {
@@ -49,13 +51,13 @@ export default function Card({ cards, startIndex }: Props) {
           return (
             <div
               key={card.id}
-              className="absolute w-3/4vh h-3/4vh bg-white text-black shadow-lg [backface-visibility:hidden] transform transition-transform duration-1800 ease-in-out"
+              className="absolute aspect-square w-full transform bg-white text-xs text-black shadow-lg transition-transform duration-1800 ease-in-out [backface-visibility:hidden] md:text-base"
               style={{ transform: `rotateY(${rotationAngle}deg)` }}
             >
               {/* 카드 타입에 따라 조건부 렌더링 */}
               {card.type === "text" ? (
                 <div
-                  className="font-KoPub font-light w-full h-full"
+                  className="h-full w-full font-KoPub font-light"
                   dangerouslySetInnerHTML={{ __html: card.content }}
                 />
               ) : (
@@ -66,7 +68,7 @@ export default function Card({ cards, startIndex }: Props) {
         })}
       </div>
       <Caption cards={cards} currentIndex={currentIndex} />
-      <ProgressBar length={cards.length} currentIndex={currentIndex} />
+      {/* <ProgressBar length={cards.length} currentIndex={currentIndex} /> */}
     </div>
   );
 }

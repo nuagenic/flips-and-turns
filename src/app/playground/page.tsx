@@ -75,7 +75,7 @@ export default function Playground() {
       createdAt: new Date(),
       content: `
             <div class="w-full h-full flex justify-center items-center leading-loose">
-              <div>
+              <div class="p-4 md:p-0">
                   <p>걸어, 걸어, 걸어, 걸어, 걸어, 걸어, 걸어, 여기도 매미 소리가 들립니까?<br />
                   누가 불을 붙였습니까?<br />
                   그는 외화로 죽었습니까?<br />
@@ -107,11 +107,11 @@ export default function Playground() {
       createdBy: "백",
       createdAt: new Date(),
       content: `
-                <div class="w-full h-full flex flex-col justify-between p-8">
+                <div class="w-full h-full flex flex-col justify-between p-4 md:p-8">
                   <div class="flex justify-end">
-                      <p class="font-bold text-4xl">VERGE</p>
+                      <p class="font-bold text-2xl md:text-4xl">VERGE</p>
                   </div>
-                  <div class="flex flex-col gap-3 justify-start whitespace-pre">
+                  <div class="flex flex-col gap-2 md:gap-3 justify-start whitespace-pre">
                         <p class="font-medium">01.        Armistice</p>
                         <p class="font-medium">02.        New Task Freestyle</p>
                         <p class="font-medium">03.        봉천동 5</p>
@@ -129,7 +129,7 @@ export default function Playground() {
   ];
 
   return (
-    <main className="overflow-hidden w-full h-full">
+    <main className="h-full w-full overflow-hidden">
       <Card cards={testCards} startIndex={startIndex} />
     </main>
   );

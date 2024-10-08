@@ -28,13 +28,13 @@ export default function ProgressBar({ length, currentIndex }: Props) {
   });
 
   return (
-    <div className="flex justify-center items-start">
+    <div className="flex items-start justify-center">
       <div
-        className="h-2 bg-slate-100 border-none mt-4 mb-10 w-3/4vh"
+        className="mb-10 mt-4 h-2 w-3/4vh border-none bg-slate-100"
         ref={totalBar}
       >
         <div
-          className="relative bg-black h-2 border-none transform transition-transform duration-1800 ease-in-out"
+          className="relative h-2 transform border-none bg-black transition-transform duration-1800 ease-in-out"
           style={{
             width: segmentWidth,
             transform: `translateX(${segmentWidth * currentIndex}px)`,
