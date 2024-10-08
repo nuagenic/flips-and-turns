@@ -40,7 +40,7 @@ export default function Card({ cards, startIndex }: Props) {
   };
 
   return (
-    <div className="flex h-full w-full flex-col">
+    <div className="flex h-full w-full flex-col p-2">
       <div
         className="flex flex-grow items-end justify-center [perspective:2000px]"
         onClick={handleFlip}
@@ -51,7 +51,7 @@ export default function Card({ cards, startIndex }: Props) {
           return (
             <div
               key={card.id}
-              className="absolute h-3/4vh w-3/4vh transform bg-white text-black shadow-lg transition-transform duration-1800 ease-in-out [backface-visibility:hidden]"
+              className="absolute aspect-square w-full transform bg-white text-xs text-black shadow-lg transition-transform duration-1800 ease-in-out [backface-visibility:hidden] md:h-3/4vh md:w-3/4vh md:text-base"
               style={{ transform: `rotateY(${rotationAngle}deg)` }}
             >
               {/* 카드 타입에 따라 조건부 렌더링 */}
