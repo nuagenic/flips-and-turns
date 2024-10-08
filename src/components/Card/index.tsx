@@ -51,7 +51,7 @@ export default function Card({ cards, startIndex }: Props) {
           return (
             <div
               key={card.id}
-              className="absolute aspect-square w-full transform bg-white text-xs text-black shadow-lg transition-transform duration-1800 ease-in-out [backface-visibility:hidden] md:h-3/4vh md:w-3/4vh md:text-base"
+              className="absolute aspect-square w-full transform bg-white text-xs text-black shadow-lg transition-transform duration-1800 ease-in-out [backface-visibility:hidden] md:text-base lg:h-3/4vh lg:w-3/4vh"
               style={{ transform: `rotateY(${rotationAngle}deg)` }}
             >
               {/* 카드 타입에 따라 조건부 렌더링 */}
