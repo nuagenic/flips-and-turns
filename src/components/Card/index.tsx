@@ -18,11 +18,14 @@ export default function Card({ cards, startIndex }: Props) {
       i === startIndex ? 0 : 180,
     ),
   );
+
   const handleFlip = (event: React.MouseEvent<HTMLDivElement>) => {
     const cardWidth = event.currentTarget.offsetWidth;
+    const cardLeft = event.currentTarget.offsetLeft;
+
     const newAngles = [...rotationAngles];
 
-    if (event.clientX > cardWidth / 2) {
+    if (event.clientX > cardLeft + cardWidth / 2) {
       // 화면 우측 클릭
       if (currentIndex === cards.length - 1) return;
       newAngles[currentIndex] += 180;
