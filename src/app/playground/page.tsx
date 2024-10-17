@@ -162,7 +162,7 @@ export default function Playground() {
       createdBy: "백",
       createdAt: new Date(),
       content: `
-              <div class="w-full h-full leading-loose whitespace-normal p-neg4 overflow-hidden">
+              <div class="w-full h-full leading-loose whitespace-normal overflow-hidden">
               당신은 하얀 배경과 검은 형상을 보고 있습니까? 그러나 빛은 당신을 배신합니다 접근 권한이 거부된 픽셀이 당신에게 접근한다 이것은 캔버스 연필 자국도 종이에 찍힌 잉크도 아니다 서로의 자국이 된 서로를 목격하세요 환영합니다 여기는 flips and turns 
               당신은 하얀 배경과 검은 형상을 보고 있습니까? 그러나 빛은 당신을 배신합니다 접근 권한이 거부된 픽셀이 당신에게 접근한다 이것은 캔버스 연필 자국도 종이에 찍힌 잉크도 아니다 서로의 자국이 된 서로를 목격하세요 환영합니다 여기는 flips and turns 
               당신은 하얀 배경과 검은 형상을 보고 있습니까? 그러나 빛은 당신을 배신합니다 접근 권한이 거부된 픽셀이 당신에게 접근한다 이것은 캔버스 연필 자국도 종이에 찍힌 잉크도 아니다 서로의 자국이 된 서로를 목격하세요 환영합니다 여기는 flips and turns 
