@@ -132,7 +132,7 @@ export default function Playground() {
       createdBy: "백",
       createdAt: new Date(),
       content: `
-              <div class="w-full h-full flex flex-col justify-center items-center p-12 leading-loose gap-24">
+              <div class="w-full h-full flex flex-col justify-center items-center p-12 leading-loose gap-8 text-xxs md:text-base lg:leading-8 lg:gap-24">
                 <div>
                     나는 항상 시간이 내 발목을 스쳐 흐르는 계곡물 같았어. 그러니까 아프지도 가렵지도 않은데 발목은 끊임없이 젖고 있어. 다리를 들 수 있을까? (그건 위반이야) 나는 대신 허리를 굽혀서 양손으로 사발을 만들어. 시간을 한 움큼 떠내어 풀을 먹였어. 그러면 그만큼이 빳빳해져서 고개를 치켜들어. 이제 그건 분명히 시간은 아니야. 그렇지만 마주볼 수는 있어.
                 </div>
@@ -148,7 +148,7 @@ export default function Playground() {
       createdBy: "백",
       createdAt: new Date(),
       content: `
-              <div class="w-full h-full flex flex-col justify-center items-center p-12 leading-loose whitespace-pre-wrap lg:text-base lg:leading-8 lg:p-8">
+              <div class="w-full h-full flex flex-col justify-center items-center p-12 leading-loose whitespace-pre-wrap text-xxs md:text-xs md:leading-6 lg:text-base lg:leading-8 lg:p-8">
                 <div>  뭉 씨(63)는 어느 날 자신이 걷잡을 수 없이 고립되었다는 사실을 깨달았다. 고독이 도처에서 굶주린 치타처럼 달려들고 있었다.
   물론 뭉 씨에게 거머리처럼 붙어 다니던 크고 작은 스캔들은 몹시 성가신 것이었다. 사람들은 뭉 씨더러 의뭉스럽다, 사고뭉치다 하며 수군대곤 했다. 일각에서는 뭉 씨와 뭉게뭉게 간의 염문설이 돌기도 했다. 도깨비불 같은 카메라들 앞에서 뭉 씨는 쉰 목소리로 호소했다. "저는 그들과 요만큼의 관련도 없습니다! 제발 저를 가만히 내버려 두시오!"
   세계는 놀라울 정도로 뭉 씨의 말을 잘 들었다. 뭉 씨는 마침내 홀로 섰고, 누구도 그의 앞뒤에 군말을 더하지 않았다. 그때부터 거짓말처럼 뭉 씨는 쇠약해졌는데, 그렇다고 그것이 아주 거짓말은 아니었다.

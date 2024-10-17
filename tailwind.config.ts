@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       fontSize: {
-        xxs: "0.6rem",
+        xxs: "0.5rem",
       },
       width: {
         vh: "100vh",
