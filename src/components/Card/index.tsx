@@ -1,53 +1,47 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { CardType } from "@/app/page";
 import Caption from "@/components/Caption";
 import ProgressBar from "@/components/ProgressBar";
 
 type Props = {
   cards: CardType[];
-  startIndex: number;
+  currentIndex: number;
+  prevIndex: number | null;
 };
 
-export default function Card({ cards, startIndex }: Props) {
-  const [currentIndex, setCurrentIndex] = useState(startIndex);
+export default function Card({ cards, currentIndex, prevIndex }: Props) {
+  // const [currentIndex, setCurrentIndex] = useState(startIndex);
   // 각 카드들의 회전 각도를 저장하는 state. 처음 렌더링에서 보여질 카드만 0도(앞면)로 설정.
   const [rotationAngles, setRotationAngles] = useState<number[]>(() =>
     Array.from({ length: cards.length }, (_, i) =>
-      i === startIndex ? 0 : 180,
+      i === currentIndex ? 0 : 180,
     ),
   );
 
-  const handleFlip = (event: React.MouseEvent<HTMLDivElement>) => {
-    const cardWidth = event.currentTarget.offsetWidth;
-    const cardLeft = event.currentTarget.offsetLeft;
-
-    const newAngles = [...rotationAngles];
-
-    if (event.clientX > cardLeft + cardWidth / 2) {
-      // 화면 우측 클릭
-      if (currentIndex === cards.length - 1) return;
-      newAngles[currentIndex] += 180;
-      newAngles[currentIndex + 1] += 180;
-      setCurrentIndex((prevIndex) => prevIndex + 1);
+  // currentIndex가 변경될 때마다 회전 각도 업데이트
+  useEffect(() => {
+    // 다음 카드로 넘기는 경우
+    if (currentIndex > prevIndex!) {
+      setRotationAngles((prevArr) =>
+        prevArr.map((val, idx) =>
+          idx === currentIndex || idx === prevIndex ? val + 180 : val,
+        ),
+      );
     } else {
-      // 화면 좌측 클릭
-      if (currentIndex === 0) return;
-      newAngles[currentIndex] -= 180;
-      newAngles[currentIndex - 1] -= 180;
-      setCurrentIndex((prevIndex) => prevIndex - 1);
+      // 이전 카드로 넘기는 경우
+      setRotationAngles((prevArr) =>
+        prevArr.map((val, idx) =>
+          idx === currentIndex || idx === prevIndex ? val - 180 : val,
+        ),
+      );
     }
-
-    setRotationAngles(newAngles);
-  };
+  }, [currentIndex, cards.length]);
 
   return (
     <div className="flex h-full w-full flex-col items-center justify-center p-2 lg:p-0">
-      <div
-        className="flex aspect-square w-full items-center justify-center [perspective:2000px] lg:h-3/4vh lg:w-3/4vh"
-        onClick={handleFlip}
-      >
+      <div className="flex aspect-square w-full items-center justify-center [perspective:2000px] lg:h-3/4vh lg:w-3/4vh">
         {cards.map((card, index) => {
           const rotationAngle = rotationAngles[index];
 
