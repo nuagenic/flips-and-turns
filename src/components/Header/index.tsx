@@ -1,6 +1,11 @@
 import Link from "next/link";
 
-export default function Header() {
+type HeaderProps = {
+  currentIndex: number;
+  length: number;
+};
+
+export default function Header({ currentIndex, length }: HeaderProps) {
   const tabs = [
     { name: "HOME", path: "/" },
     { name: "RULES & TERMS", path: "/rules-terms" },
@@ -9,9 +14,17 @@ export default function Header() {
     { name: "SUBSCRIBE", path: "/subscribe" },
   ];
 
+  const headerWidth = window.innerWidth / length;
+
   return (
     <header>
-      <nav className="flex w-full justify-between p-4">
+      <nav
+        className="absolute flex h-full flex-col bg-slate-200 p-4"
+        style={{
+          width: `${headerWidth}px`,
+          left: `${headerWidth * currentIndex}px`,
+        }}
+      >
         {tabs.map((tab, i) => {
           return (
             <Link href={tab.path} key={i}>

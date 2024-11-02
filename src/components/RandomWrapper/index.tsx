@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Card from "@/components/Card";
+import Header from "@/components/Header";
 import { CardType } from "@/app/page";
 
 type Props = {
@@ -40,8 +41,11 @@ export default function RandomWrapper({ cards }: Props) {
   }
 
   return (
-    <div className="flex h-full w-full items-center" onClick={handleFlip}>
-      <Card cards={cards} currentIndex={currentIndex} prevIndex={prevIndex} />
-    </div>
+    <>
+      <Header currentIndex={currentIndex} length={cards.length} />
+      <div className="flex h-full w-full items-center" onClick={handleFlip}>
+        <Card cards={cards} currentIndex={currentIndex} prevIndex={prevIndex} />
+      </div>
+    </>
   );
 }
