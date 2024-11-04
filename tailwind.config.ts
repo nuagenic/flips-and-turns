@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      borderWidth: {
+        "1": "1px",
+      },
       colors: {
         basic: "#F2F2F2",
         header: "#CCCCCC",

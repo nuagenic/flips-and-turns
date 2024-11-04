@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import Tab from "@/components/Tab";
 
 type HeaderProps = {
   currentIndex: number;
@@ -11,11 +12,26 @@ export default function Header({ currentIndex, length }: HeaderProps) {
     typeof window !== "undefined" ? window.innerWidth : 0,
   );
   const tabs = [
-    { name: "home", path: "/" },
-    { name: "rules and terms", path: "/rules-terms" },
-    { name: "archive", path: "/archive" },
-    { name: "about", path: "/about" },
-    { name: "subscribe", path: "/subscribe" },
+    { name: "home", path: "/", flippableChar: "e", flippableIndex: 3 },
+    {
+      name: "rules and terms",
+      path: "/rules-terms",
+      flippableChar: "t",
+      flippableIndex: 10,
+    },
+    {
+      name: "archive",
+      path: "/archive",
+      flippableChar: "h",
+      flippableIndex: 3,
+    },
+    { name: "about", path: "/about", flippableChar: "a", flippableIndex: 0 },
+    {
+      name: "subscribe",
+      path: "/subscribe",
+      flippableChar: "b",
+      flippableIndex: 2,
+    },
   ];
 
   useEffect(() => {
@@ -45,7 +61,11 @@ export default function Header({ currentIndex, length }: HeaderProps) {
         {tabs.map((tab, i) => {
           return (
             <Link href={tab.path} key={i}>
-              <button key={i}>{tab.name}</button>
+              <Tab
+                text={tab.name}
+                flippableChar={tab.flippableChar}
+                flippableIndex={tab.flippableIndex}
+              />
             </Link>
           );
         })}

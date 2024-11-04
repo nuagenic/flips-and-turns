@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import { CardType } from "@/app/page";
 import Caption from "@/components/Caption";
-import ProgressBar from "@/components/ProgressBar";
 
 type Props = {
   cards: CardType[];
