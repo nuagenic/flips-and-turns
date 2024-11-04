@@ -23,6 +23,7 @@ const config: Config = {
       },
       fontFamily: {
         KoPub: ["KoPubWorldBatang", "serif"],
+        sans: ["Pretendard", "sans-serif"],
       },
       transitionDuration: {
         "1500": "1500ms",
