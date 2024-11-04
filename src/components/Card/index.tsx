@@ -40,8 +40,8 @@ export default function Card({ cards, currentIndex, prevIndex }: Props) {
   }, [currentIndex, cards.length]);
 
   return (
-    <div className="z-20 flex h-full w-full flex-col items-center justify-center p-2 lg:p-0">
-      <div className="flex aspect-square w-full items-center justify-center [perspective:2000px] lg:h-3/4vh lg:w-3/4vh">
+    <div className="flex h-full w-full flex-col items-center justify-center p-2 lg:p-0">
+      <div className="z-20 flex aspect-square w-full items-center justify-center [perspective:2000px] lg:h-3/4vh lg:w-3/4vh">
         {cards.map((card, index) => {
           const rotationAngle = rotationAngles[index];
 
