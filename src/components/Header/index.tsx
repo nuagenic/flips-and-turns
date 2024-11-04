@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import Tab from "@/components/Tab";
+import { tabInfo } from "@/lib/tabInfo";
 
 type HeaderProps = {
   currentIndex: number;
@@ -11,28 +12,6 @@ export default function Header({ currentIndex, length }: HeaderProps) {
   const [windowWidth, setWindowWidth] = useState<number>(
     typeof window !== "undefined" ? window.innerWidth : 0,
   );
-  const tabs = [
-    { name: "home", path: "/", flippableChar: "e", flippableIndex: 3 },
-    {
-      name: "rules and terms",
-      path: "/rules-terms",
-      flippableChar: "t",
-      flippableIndex: 10,
-    },
-    {
-      name: "archive",
-      path: "/archive",
-      flippableChar: "h",
-      flippableIndex: 3,
-    },
-    { name: "about", path: "/about", flippableChar: "a", flippableIndex: 0 },
-    {
-      name: "subscribe",
-      path: "/subscribe",
-      flippableChar: "b",
-      flippableIndex: 2,
-    },
-  ];
 
   useEffect(() => {
     const handleResize = () => {
@@ -58,11 +37,12 @@ export default function Header({ currentIndex, length }: HeaderProps) {
           transform: `translateX(${((windowWidth - maxWidth) / (length - 1)) * currentIndex}px)`,
         }}
       >
-        {tabs.map((tab, i) => {
+        {tabInfo.map((tab, i) => {
           return (
             <Link href={tab.path} key={i}>
               <Tab
                 text={tab.name}
+                path={tab.path}
                 flippableChar={tab.flippableChar}
                 flippableIndex={tab.flippableIndex}
               />

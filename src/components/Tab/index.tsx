@@ -2,23 +2,32 @@
 import FlippableChar from "../FlippableChar";
 import { FlipContext } from "@/app/contexts/FlipContext";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 
 type TabProps = {
   text: string;
+  path: string;
   flippableChar: string;
   flippableIndex: number;
 };
 
-export default function Tab({ text, flippableChar, flippableIndex }: TabProps) {
-  const [isHovered, setIsHovered] = useState(false);
+export default function Tab({
+  text,
+  path,
+  flippableChar,
+  flippableIndex,
+}: TabProps) {
+  const pathname = usePathname();
+  const [isFlipped, setIsFlipped] = useState<boolean>(pathname !== path);
+
   const beforeFlippable = text.slice(0, flippableIndex);
   const afterFlippable = text.slice(flippableIndex + 1);
 
   return (
-    <FlipContext.Provider value={isHovered}>
+    <FlipContext.Provider value={isFlipped}>
       <div
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
+        onMouseEnter={() => setIsFlipped((prevState: boolean) => !prevState)}
+        onMouseLeave={() => setIsFlipped((prevState: boolean) => !prevState)}
         className="tracking-wide"
       >
         {beforeFlippable}
