@@ -40,7 +40,7 @@ export default function Card({ cards, currentIndex, prevIndex }: Props) {
   }, [currentIndex, cards.length]);
 
   return (
-    <div className="flex h-full w-full flex-col items-center justify-center p-2 lg:p-0">
+    <div className="z-20 flex h-full w-full flex-col items-center justify-center p-2 lg:p-0">
       <div className="flex aspect-square w-full items-center justify-center [perspective:2000px] lg:h-3/4vh lg:w-3/4vh">
         {cards.map((card, index) => {
           const rotationAngle = rotationAngles[index];
@@ -48,7 +48,7 @@ export default function Card({ cards, currentIndex, prevIndex }: Props) {
           return (
             <div
               key={card.id}
-              className="absolute aspect-square w-full transform bg-white text-xs text-black shadow-lg transition-transform duration-1800 ease-in-out [backface-visibility:hidden] md:text-base"
+              className="absolute aspect-square w-full transform bg-white text-xs text-black transition-transform duration-1800 ease-in-out [backface-visibility:hidden] md:text-base"
               style={{ transform: `rotateY(${rotationAngle}deg)` }}
             >
               {/* 카드 타입에 따라 조건부 렌더링 */}

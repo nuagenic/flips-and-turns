@@ -7,22 +7,22 @@ type HeaderProps = {
 
 export default function Header({ currentIndex, length }: HeaderProps) {
   const tabs = [
-    { name: "HOME", path: "/" },
-    { name: "RULES & TERMS", path: "/rules-terms" },
-    { name: "ARCHIVE", path: "/archive" },
-    { name: "ABOUT", path: "/about" },
-    { name: "SUBSCRIBE", path: "/subscribe" },
+    { name: "home", path: "/" },
+    { name: "rules and terms", path: "/rules-terms" },
+    { name: "archive", path: "/archive" },
+    { name: "about", path: "/about" },
+    { name: "subscribe", path: "/subscribe" },
   ];
-
-  const headerWidth = window.innerWidth / length;
+  const maxWidth = 150;
+  const headerWidth = Math.max(window.innerWidth / length, maxWidth);
 
   return (
     <header>
       <nav
-        className="absolute flex h-full flex-col bg-slate-200 p-4"
+        className="from-header to-basic absolute z-10 flex h-full flex-col bg-gradient-to-r p-2 font-sans font-light"
         style={{
           width: `${headerWidth}px`,
-          left: `${headerWidth * currentIndex}px`,
+          left: `${((window.innerWidth - maxWidth) / (length - 1)) * currentIndex}px`,
         }}
       >
         {tabs.map((tab, i) => {

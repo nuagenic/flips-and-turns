@@ -8,6 +8,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: {
+        basic: "#F2F2F2",
+        header: "#CCCCCC",
+      },
       fontSize: {
         xxs: "0.5rem",
       },
