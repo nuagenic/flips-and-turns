@@ -18,7 +18,7 @@ export default function FlippableChar({ char }: FlippableCharProps) {
     >
       <span
         className="border-1 pointer-events-none absolute h-full border-black px-[0.6rem]"
-        style={{ transform: "translate(-50%, -50%)", top: "50%", left: "50%" }}
+        style={{ transform: "translate(-50%, 0)", left: "50%" }}
       ></span>
       <span className="inline-block">{char}</span>
     </span>
