@@ -16,9 +16,9 @@ export default function RandomWrapper({ cards }: Props) {
 
   const handleFlip = (event: React.MouseEvent<HTMLDivElement>) => {
     const divWidth = event.currentTarget.offsetWidth;
-    if (event.clientX > divWidth / 2) {
+    if (event.clientX > divWidth / 2 && currentIndex! < cards.length - 1) {
       setCurrentIndex((prevIndex) => prevIndex! + 1);
-    } else {
+    } else if (event.clientX < divWidth / 2 && currentIndex! > 0) {
       setCurrentIndex((prevIndex) => prevIndex! - 1);
     }
   };
@@ -29,6 +29,7 @@ export default function RandomWrapper({ cards }: Props) {
     setCurrentIndex(randomIndex);
   }, [cards.length]);
 
+  // prevIndex를 Card Component에 props로 전달해주기 위함
   useEffect(() => {
     if (currentIndex !== null) {
       setPrevIndex(currentIndex);
