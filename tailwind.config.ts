@@ -8,6 +8,13 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      borderWidth: {
+        "1": "1px",
+      },
+      colors: {
+        basic: "#F2F2F2",
+        header: "#CCCCCC",
+      },
       fontSize: {
         xxs: "0.5rem",
       },
@@ -23,6 +30,7 @@ const config: Config = {
       },
       fontFamily: {
         KoPub: ["KoPubWorldBatang", "serif"],
+        sans: ["Pretendard", "sans-serif"],
       },
       transitionDuration: {
         "1500": "1500ms",

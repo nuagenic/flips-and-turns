@@ -30,7 +30,7 @@ export default function Caption({ cards, currentIndex }: Props) {
     cards.length;
 
   return (
-    <div className="mt-2 flex w-full justify-between whitespace-pre text-sm font-normal lg:w-3/4vh lg:text-base">
+    <div className="z-20 mt-2 flex w-full justify-between whitespace-pre text-sm font-normal lg:w-3/4vh lg:text-base">
       <p className="w-30 flex w-1/3 justify-start">{currentCard.createdBy}</p>
       <p className="w-30 flex w-1/3 justify-center">
         {currentIndex + 1 + "/" + cards.length}

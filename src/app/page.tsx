@@ -28,7 +28,7 @@ export default async function Home() {
   });
 
   return (
-    <main className="flex-grow overflow-hidden w-full">
+    <main className="bg-basic z-0 w-full flex-grow overflow-hidden">
       <RandomWrapper cards={cards} />
     </main>
   );
