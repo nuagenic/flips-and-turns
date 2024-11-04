@@ -13,7 +13,9 @@ export type CardType = {
 };
 
 export default function Playground() {
-  const startIndex = 1;
+  // 테스트용으로 원하는 인덱스 값 설정하기
+  const startIndex = 8;
+  const prevIndex = 0;
   const testCards: CardType[] = [
     {
       id: "1",
@@ -183,7 +185,7 @@ export default function Playground() {
 
   return (
     <main className="h-full w-full overflow-hidden">
-      <Card cards={testCards} startIndex={startIndex} />
+      <Card cards={testCards} currentIndex={startIndex} prevIndex={prevIndex} />
     </main>
   );
 }
