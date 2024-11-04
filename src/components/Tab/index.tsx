@@ -28,7 +28,7 @@ export default function Tab({
       <div
         onMouseEnter={() => setIsFlipped((prevState: boolean) => !prevState)}
         onMouseLeave={() => setIsFlipped((prevState: boolean) => !prevState)}
-        className="tracking-wide"
+        className="text-sm tracking-wide"
       >
         {beforeFlippable}
         <FlippableChar char={flippableChar} />
