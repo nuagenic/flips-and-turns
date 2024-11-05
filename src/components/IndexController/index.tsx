@@ -10,16 +10,19 @@ type Props = {
 };
 
 // 인덱스를 통해 헤더와 카드의 상태를 결정
-export default function RandomWrapper({ cards }: Props) {
+export default function IndexController({ cards }: Props) {
   const [currentIndex, setCurrentIndex] = useState<number | null>(null);
   const [prevIndex, setPrevIndex] = useState<number | null>(null);
+  const [flipState, setFlipState] = useState<string | null>(null);
 
   const handleFlip = (event: React.MouseEvent<HTMLDivElement>) => {
     const divWidth = event.currentTarget.offsetWidth;
     if (event.clientX > divWidth / 2 && currentIndex! < cards.length - 1) {
       setCurrentIndex((prevIndex) => prevIndex! + 1);
+      setFlipState("next");
     } else if (event.clientX < divWidth / 2 && currentIndex! > 0) {
       setCurrentIndex((prevIndex) => prevIndex! - 1);
+      setFlipState("prev");
     }
   };
 
@@ -45,7 +48,12 @@ export default function RandomWrapper({ cards }: Props) {
     <>
       <Header currentIndex={currentIndex} length={cards.length} />
       <div className="flex h-full w-full items-center" onClick={handleFlip}>
-        <Card cards={cards} currentIndex={currentIndex} prevIndex={prevIndex} />
+        <Card
+          cards={cards}
+          currentIndex={currentIndex}
+          prevIndex={prevIndex}
+          flipState={flipState}
+        />
       </div>
     </>
   );

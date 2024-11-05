@@ -3,7 +3,7 @@
  */
 
 // import Card from "@/components/Card";
-import RandomWrapper from "@/components/RandomWrapper";
+import IndexController from "@/components/IndexController";
 import { fetchCards } from "@/lib/fetchCards";
 
 export type CardType = {
@@ -28,8 +28,8 @@ export default async function Home() {
   });
 
   return (
-    <main className="bg-basic z-0 w-full flex-grow overflow-hidden">
-      <RandomWrapper cards={cards} />
+    <main className="z-0 w-full flex-grow overflow-hidden bg-basic">
+      <IndexController cards={cards} />
     </main>
   );
 }
