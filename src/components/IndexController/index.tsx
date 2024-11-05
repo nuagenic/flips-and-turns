@@ -10,7 +10,7 @@ type Props = {
 };
 
 // 인덱스를 통해 헤더와 카드의 상태를 결정
-export default function RandomWrapper({ cards }: Props) {
+export default function IndexController({ cards }: Props) {
   const [currentIndex, setCurrentIndex] = useState<number | null>(null);
   const [prevIndex, setPrevIndex] = useState<number | null>(null);
 
