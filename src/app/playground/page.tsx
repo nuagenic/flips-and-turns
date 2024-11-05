@@ -185,7 +185,12 @@ export default function Playground() {
 
   return (
     <main className="h-full w-full overflow-hidden">
-      <Card cards={testCards} currentIndex={startIndex} prevIndex={prevIndex} />
+      <Card
+        cards={testCards}
+        currentIndex={startIndex}
+        prevIndex={prevIndex}
+        flipState={null}
+      />
     </main>
   );
 }
