@@ -8,10 +8,15 @@ type Props = {
   cards: CardType[];
   currentIndex: number;
   prevIndex: number | null;
+  flipState: string | null;
 };
 
-export default function Card({ cards, currentIndex, prevIndex }: Props) {
-  // const [currentIndex, setCurrentIndex] = useState(startIndex);
+export default function Card({
+  cards,
+  currentIndex,
+  prevIndex,
+  flipState,
+}: Props) {
   // 각 카드들의 회전 각도를 저장하는 state. 처음 렌더링에서 보여질 카드만 0도(앞면)로 설정.
   const [rotationAngles, setRotationAngles] = useState<number[]>(() =>
     Array.from({ length: cards.length }, (_, i) =>
@@ -19,24 +24,22 @@ export default function Card({ cards, currentIndex, prevIndex }: Props) {
     ),
   );
 
-  // currentIndex가 변경될 때마다 회전 각도 업데이트
+  // 다음 장인지 이전 장인지를 props로 받아, rotationAngles를 map 처리
   useEffect(() => {
-    // 다음 카드로 넘기는 경우
-    if (currentIndex > prevIndex!) {
+    if (flipState === "next") {
       setRotationAngles((prevArr) =>
         prevArr.map((val, idx) =>
           idx === currentIndex || idx === prevIndex ? val + 180 : val,
         ),
       );
-    } else {
-      // 이전 카드로 넘기는 경우
+    } else if (flipState === "prev") {
       setRotationAngles((prevArr) =>
         prevArr.map((val, idx) =>
           idx === currentIndex || idx === prevIndex ? val - 180 : val,
         ),
       );
     }
-  }, [currentIndex, cards.length]);
+  }, [currentIndex]);
 
   return (
     <div className="flex h-full w-full flex-col items-center justify-center p-2 lg:p-0">
@@ -64,7 +67,6 @@ export default function Card({ cards, currentIndex, prevIndex }: Props) {
         })}
       </div>
       <Caption cards={cards} currentIndex={currentIndex} />
-      {/* <ProgressBar length={cards.length} currentIndex={currentIndex} /> */}
     </div>
   );
 }
