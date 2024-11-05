@@ -17,7 +17,7 @@ export default function FlippableChar({ char }: FlippableCharProps) {
     >
       {/* flippableChar를 감싸는 border */}
       <span
-        className="border-1 pointer-events-none absolute h-full border-black px-[0.5rem]"
+        className="pointer-events-none absolute h-full border-1 border-black px-[0.5rem]"
         style={{ transform: "translate(-50%, 0)", left: "50%" }}
       ></span>
       {/* flippableChar */}
