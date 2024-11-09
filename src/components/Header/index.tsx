@@ -38,7 +38,7 @@ export default function Header(props: HeaderProps) {
 
   return (
     <header
-      className="absolute z-10 flex h-full transform flex-col bg-gradient-to-r from-header to-basic p-2 font-sans font-light transition-transform duration-1800 ease-in-out"
+      className="absolute inset-0 z-10 flex h-full transform flex-col bg-gradient-to-r from-header to-basic p-2 font-sans font-light transition-transform duration-1800 ease-in-out"
       style={{
         width: `${headerWidth}px`,
         transform: `translateX(${translateX}px)`,
