@@ -29,7 +29,7 @@ export default function About() {
           <span> 의 대화와 크게 다르지 않다</span>
         </div>
         <div>flipsandturns는 주변 지인에게 큰 호응을 얻지 못했다</div>
-        <div>flipsandturns는 정사각형이라는 타협점을 찾았다</div>
+        <div>flipsandturns는 정사각형이라는 교점을 찾았다</div>
         <div>flipsandturns는 웹이다</div>
         <div>more to come...</div>
       </div>
