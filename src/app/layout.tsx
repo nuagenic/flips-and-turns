@@ -5,8 +5,11 @@ import "./globals.css";
 import Header from "@/components/Header";
 
 export const metadata: Metadata = {
-  title: "Flips and Turns",
+  title: "flips and turns",
   description: "Collaborative Website by 200",
+  icons: {
+    icon: "/logo.svg",
+  },
 };
 
 export default function RootLayout({

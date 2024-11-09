@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import Tab from "@/components/Tab";
+import Logo from "@/components/Logo";
 import { tabInfo } from "@/lib/tabInfo";
 
 type HeaderProps = {
@@ -39,7 +40,7 @@ export default function Header(props: HeaderProps) {
         transform: `translateX(${((windowWidth - maxWidth) / (length - 1)) * currentIndex}px)`,
       }}
     >
-      <nav>
+      <nav className="grow">
         {tabInfo.map((tab, i) => {
           return (
             <Link href={tab.path} key={i}>
@@ -53,6 +54,8 @@ export default function Header(props: HeaderProps) {
           );
         })}
       </nav>
+      <Logo size={40} />
+      <div className="mb-1"></div>
     </header>
   );
 }
