@@ -37,6 +37,15 @@ const config: Config = {
         "1800": "1800ms",
         "2000": "2000ms",
       },
+      animation: {
+        "spin-y": "spinY 5s linear infinite",
+      },
+      keyframes: {
+        spinY: {
+          "0%": { transform: "rotateY(0deg)" },
+          "100%": { transform: "rotateY(360deg)" },
+        },
+      },
     },
   },
   plugins: [],
