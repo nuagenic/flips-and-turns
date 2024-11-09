@@ -3,6 +3,7 @@
  */
 
 import Form from "@/components/Form";
+import Header from "@/components/Header";
 import { connectDB } from "@/lib/database";
 import { revalidatePath } from "next/cache";
 
@@ -35,5 +36,11 @@ export default function Subscribe() {
     revalidatePath("/subscribe");
   }
 
-  return <Form updateItemAction={createSubscription} />;
+  return (
+    <main className="flex h-full w-full flex-grow flex-col items-center justify-center overflow-hidden bg-basic">
+      <Header />
+      <div className="z-20 mb-20 text-3xl">we might be on the same page</div>
+      <Form updateItemAction={createSubscription} />
+    </main>
+  );
 }
