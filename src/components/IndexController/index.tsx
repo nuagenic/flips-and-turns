@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Card from "@/components/Card";
 import Header from "@/components/Header";
 import { CardType } from "@/app/page";
@@ -11,6 +11,7 @@ type Props = {
 
 // 인덱스를 통해 헤더와 카드의 상태를 결정
 export default function IndexController({ cards }: Props) {
+  const [cursorClass, setCursorClass] = useState<string>("");
   const [currentIndex, setCurrentIndex] = useState<number | null>(null);
   const [prevIndex, setPrevIndex] = useState<number | null>(null);
   const [flipState, setFlipState] = useState<string | null>(null);
@@ -24,6 +25,13 @@ export default function IndexController({ cards }: Props) {
       setCurrentIndex((prevIndex) => prevIndex! - 1);
       setFlipState("prev");
     }
+  };
+
+  const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
+    const width = window.innerWidth;
+    event.clientX > width / 2
+      ? setCursorClass("cursor-next")
+      : setCursorClass("cursor-prev");
   };
 
   // 클라이언트 사이드에서 랜덤한 인덱스 설정 (서버 캐싱 방지)
@@ -47,7 +55,11 @@ export default function IndexController({ cards }: Props) {
   return (
     <>
       <Header currentIndex={currentIndex} length={cards.length} />
-      <div className="flex h-full w-full items-center" onClick={handleFlip}>
+      <div
+        className={`${cursorClass} flex h-full w-full items-center`}
+        onClick={handleFlip}
+        onMouseMove={handleMouseMove}
+      >
         <Card
           cards={cards}
           currentIndex={currentIndex}

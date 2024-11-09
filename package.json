@@ -12,12 +12,14 @@
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "dotenv": "^16.4.5",
+    "lodash.debounce": "^4.0.8",
     "mongodb": "^6.8.0",
     "next": "14.2.7",
     "react": "^18",
     "react-dom": "^18"
   },
   "devDependencies": {
+    "@types/lodash.debounce": "^4.0.9",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

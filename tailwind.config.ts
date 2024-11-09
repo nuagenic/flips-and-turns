@@ -46,6 +46,10 @@ const config: Config = {
           "100%": { transform: "rotateY(360deg)" },
         },
       },
+      cursor: {
+        next: "url(/next.svg), auto",
+        prev: "url(/prev.svg), auto",
+      },
     },
   },
   plugins: [],
