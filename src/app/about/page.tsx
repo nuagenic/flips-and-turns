@@ -3,7 +3,7 @@ import { FlippableLink } from "@/components/Link";
 
 export default function About() {
   return (
-    <main className="z-0 flex w-full flex-grow flex-col items-center justify-center overflow-hidden bg-basic">
+    <main className="z-0 flex w-full flex-grow flex-col items-center justify-center overflow-hidden bg-basic p-2">
       <Header />
       <div className="z-20 flex flex-col items-start justify-center">
         <div>
@@ -13,9 +13,7 @@ export default function About() {
           <FlippableLink char="백" href="https://brunch.co.kr/@bbaekcloud" />
           <span>{"  "})이 작업한다</span>
         </div>
-        <div>
-          flipsandturns는 보드게임 &apos;텔레스트레이션&apos;에서 영감을 받았다
-        </div>
+        <div>flipsandturns는 &apos;텔레스트레이션&apos;에서 영감을 받았다</div>
         <div>flipsandturns는 제주도에서 시작되었다</div>
         <div>
           <span> flipsandturns는{"  "}</span>
