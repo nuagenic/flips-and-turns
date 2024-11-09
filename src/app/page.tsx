@@ -2,7 +2,6 @@
  * Main page of the app.
  */
 
-// import Card from "@/components/Card";
 import IndexController from "@/components/IndexController";
 import { fetchCards } from "@/lib/fetchCards";
 
