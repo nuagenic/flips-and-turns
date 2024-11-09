@@ -54,14 +54,14 @@ export default function Card({
               style={{ transform: `rotateY(${rotationAngle}deg)` }}
             >
               {/* 카드 타입에 따라 조건부 렌더링 */}
-              {card.type === "text" ? (
+              {/* {card.type === "text" ? (
                 <div
                   className="h-full w-full font-KoPub font-light"
                   dangerouslySetInnerHTML={{ __html: card.content }}
                 />
-              ) : (
-                <img src={card.content} />
-              )}
+              ) : ( */}
+              <img src={card.content} />
+              {/* )} */}
             </div>
           );
         })}
