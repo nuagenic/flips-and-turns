@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
+  <!-- 반지름이 24인 원 -->
+  <circle cx="24" cy="24" r="24" fill="#000" /> <!-- 원하는 색상으로 설정 -->
+  <!-- 왼쪽 화살표 경로, 위치 조정 -->
+ <path d="M 16.825 25 L 22.425 30.6 L 21 32 L 13 24 L 21 16 L 22.425 17.4 L 16.825 23 H 33 V 25 H 16.825 Z" fill="#FFF" />
+ </svg>
