@@ -29,15 +29,19 @@ export default function Header(props: HeaderProps) {
     };
   });
 
+  // length === 1은 동적이지 않은 header에 대한 기본값
   const maxWidth = 150;
-  const headerWidth = Math.max(windowWidth / length, maxWidth);
+  const headerWidth =
+    length === 1 ? 150 : Math.max(windowWidth / length, maxWidth);
+  const translateX =
+    length === 1 ? 0 : ((windowWidth - maxWidth) / (length - 1)) * currentIndex;
 
   return (
     <header
       className="absolute z-10 flex h-full transform flex-col bg-gradient-to-r from-header to-basic p-2 font-sans font-light transition-transform duration-1800 ease-in-out"
       style={{
         width: `${headerWidth}px`,
-        transform: `translateX(${((windowWidth - maxWidth) / (length - 1)) * currentIndex}px)`,
+        transform: `translateX(${translateX}px)`,
       }}
     >
       <nav className="grow">
@@ -54,7 +58,9 @@ export default function Header(props: HeaderProps) {
           );
         })}
       </nav>
-      <Logo size={40} />
+      <Link href="/">
+        <Logo size={40} />
+      </Link>
       <div className="mb-1"></div>
     </header>
   );
