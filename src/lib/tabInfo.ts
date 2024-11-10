@@ -2,7 +2,7 @@ export const tabInfo = [
   { name: "home", path: "/", flippableChar: "e", flippableIndex: 3 },
   {
     name: "rules and terms",
-    path: "/rules-terms",
+    path: "/rules-and-terms",
     flippableChar: "t",
     flippableIndex: 10,
   },
