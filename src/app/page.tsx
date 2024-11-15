@@ -25,6 +25,7 @@ export default async function Home() {
       content,
     };
   });
+  console.log(cards);
 
   return (
     <main className="z-0 w-full flex-grow overflow-hidden bg-basic">
