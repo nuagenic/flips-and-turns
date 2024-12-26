@@ -24,6 +24,15 @@ export default function Card({
     ),
   );
 
+  const [cursorClass, setCursorClass] = useState<string>("");
+
+  const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
+    const width = window.innerWidth;
+    event.clientX > width / 2
+      ? setCursorClass("cursor-next")
+      : setCursorClass("cursor-prev");
+  };
+
   // 다음 장인지 이전 장인지를 props로 받아, rotationAngles를 map 처리
   useEffect(() => {
     if (flipState === "next") {
@@ -43,7 +52,10 @@ export default function Card({
 
   return (
     <div className="flex h-full w-full flex-col items-center justify-center p-2 lg:p-0">
-      <div className="z-20 flex aspect-square w-full items-center justify-center [perspective:2000px] lg:h-3/4vh lg:w-3/4vh">
+      <div
+        className={`${cursorClass} z-20 flex aspect-square w-full items-center justify-center [perspective:2000px] lg:h-3/4vh lg:w-3/4vh`}
+        onMouseMove={handleMouseMove}
+      >
         {cards.map((card, index) => {
           const rotationAngle = rotationAngles[index];
 
