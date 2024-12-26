@@ -7,10 +7,11 @@ import { CardType } from "@/app/page";
 
 type Props = {
   cards: CardType[];
+  initialIndex?: number;
 };
 
 // 인덱스를 통해 헤더와 카드의 상태를 결정
-export default function IndexController({ cards }: Props) {
+export default function IndexController({ cards, initialIndex }: Props) {
   const [cursorClass, setCursorClass] = useState<string>("");
   const [currentIndex, setCurrentIndex] = useState<number | null>(null);
   const [prevIndex, setPrevIndex] = useState<number | null>(null);
@@ -37,8 +38,8 @@ export default function IndexController({ cards }: Props) {
   // 클라이언트 사이드에서 랜덤한 인덱스 설정 (서버 캐싱 방지)
   useEffect(() => {
     const randomIndex = Math.floor(Math.random() * cards.length);
-    setCurrentIndex(randomIndex);
-  }, [cards.length]);
+    initialIndex ? setCurrentIndex(initialIndex) : setCurrentIndex(randomIndex);
+  }, [cards.length, initialIndex]);
 
   // prevIndex를 Card Component에 props로 전달해주기 위함
   useEffect(() => {
