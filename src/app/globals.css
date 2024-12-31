@@ -12,6 +12,9 @@
 body {
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--background-rgb));
+
+  touch-action: manipulation; /* 터치 동작 제한 */
+  overscroll-behavior: none; /* 확대나 스크롤 버그 방지 */
 }
 
 @layer utilities {

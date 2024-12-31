@@ -27,6 +27,24 @@ export default function IndexController({ cards, initialIndex }: Props) {
     }
   };
 
+  useEffect(() => {
+    const preventZoom = (event: TouchEvent | GestureEvent) => {
+      if (event instanceof TouchEvent && event.touches.length > 1) {
+        event.preventDefault(); // 두 손가락 확대 방지
+      } else if (event instanceof GestureEvent) {
+        event.preventDefault(); // 제스처 확대 방지
+      }
+    };
+
+    document.addEventListener("touchstart", preventZoom, { passive: false });
+    document.addEventListener("gesturestart", preventZoom);
+
+    return () => {
+      document.removeEventListener("touchstart", preventZoom);
+      document.removeEventListener("gesturestart", preventZoom);
+    };
+  }, []);
+
   // 클라이언트 사이드에서 랜덤한 인덱스 설정 (서버 캐싱 방지)
   useEffect(() => {
     const randomIndex = Math.floor(Math.random() * cards.length);
