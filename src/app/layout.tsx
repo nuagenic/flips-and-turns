@@ -25,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="relative flex h-screen w-screen min-w-[300px] flex-col">
+      <body className="relative flex h-dvh w-screen min-w-[300px] flex-col">
         {children}
       </body>
     </html>
