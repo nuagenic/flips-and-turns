@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Head from "next/head";
+import { Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -10,6 +11,13 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  initialScale: 1.0,
+  width: "device-width",
+  maximumScale: 1.0,
+  userScalable: false,
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -17,9 +25,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      </Head>
       <body className="relative flex h-screen w-screen min-w-[300px] flex-col">
         {children}
       </body>
