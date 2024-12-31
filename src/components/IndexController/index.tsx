@@ -28,20 +28,16 @@ export default function IndexController({ cards, initialIndex }: Props) {
   };
 
   useEffect(() => {
-    const preventZoom = (event: TouchEvent | GestureEvent) => {
+    const preventZoom = (event: TouchEvent) => {
       if (event instanceof TouchEvent && event.touches.length > 1) {
         event.preventDefault(); // 두 손가락 확대 방지
-      } else if (event instanceof GestureEvent) {
-        event.preventDefault(); // 제스처 확대 방지
       }
     };
 
     document.addEventListener("touchstart", preventZoom, { passive: false });
-    document.addEventListener("gesturestart", preventZoom);
 
     return () => {
       document.removeEventListener("touchstart", preventZoom);
-      document.removeEventListener("gesturestart", preventZoom);
     };
   }, []);
 
