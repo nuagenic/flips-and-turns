@@ -39,13 +39,13 @@ export default function Subscribe() {
   }
 
   return (
-    <main className="z-0 flex h-full w-full items-center justify-center overflow-auto bg-basic px-4 py-32 lg:px-52">
+    <main className="z-0 flex h-full w-full items-center justify-center overflow-auto bg-basic px-2">
       <Header />
-      <div className="z-20 flex aspect-square w-full transform flex-col justify-between overflow-auto bg-white p-12 text-xs text-black md:h-3/4vh md:w-3/4vh md:text-base lg:h-3/4vh lg:w-3/4vh">
-        <div className="z-20 flex w-full flex-col items-start justify-center gap-10 text-lg">
+      <div className="z-20 flex aspect-square w-full transform flex-col justify-between overflow-auto bg-white p-10 text-black md:h-3/4vh md:w-3/4vh md:text-base lg:h-3/4vh lg:w-3/4vh">
+        <div className="z-20 flex w-full flex-col items-start justify-center gap-10 text-sm md:text-lg">
           <Form updateItemAction={createSubscription} />
         </div>
-        <div className="z-20 mb-5 text-lg">
+        <div className="z-20 text-sm md:text-lg">
           구독을 하시면 매주 업데이트 되는 flips and turns의 <br />
           새로운 단위 작업을 이메일로 확인할 수 있습니다. <br />
           200은 해치지 않습니다. 그래도 구독 해지를 원하시면

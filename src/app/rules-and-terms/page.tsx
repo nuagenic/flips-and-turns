@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 
 export default function RulesAndTerms() {
   return (
-    <main className="z-0 flex h-full w-full items-center justify-center overflow-auto bg-basic px-4 py-32 lg:px-52">
+    <main className="z-0 flex h-full w-full items-center justify-center overflow-auto bg-basic px-2 py-32">
       <Header />
       <div className="absolute z-20 aspect-square w-full transform overflow-auto bg-white p-12 text-xs text-black md:text-base lg:h-3/4vh lg:w-3/4vh">
         <div className="z-20 flex flex-col items-start justify-center gap-10 text-xl">
