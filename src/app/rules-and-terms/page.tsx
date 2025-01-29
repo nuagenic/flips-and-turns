@@ -3,10 +3,10 @@ import Header from "@/components/Header";
 
 export default function RulesAndTerms() {
   return (
-    <main className="z-0 flex h-full w-full items-center justify-center overflow-auto bg-basic px-2 py-32">
+    <main className="z-0 flex h-full w-full items-center justify-center overflow-auto bg-basic px-2">
       <Header />
-      <div className="absolute z-20 aspect-square w-full transform overflow-auto bg-white p-12 text-xs text-black md:text-base lg:h-3/4vh lg:w-3/4vh">
-        <div className="z-20 flex flex-col items-start justify-center gap-10 text-xl">
+      <div className="z-20 aspect-square w-full transform overflow-auto bg-white p-12 text-black md:h-3/4vh md:w-3/4vh md:text-base lg:h-3/4vh lg:w-3/4vh">
+        <div className="z-20 flex flex-col items-start justify-center gap-10 text-sm md:text-lg">
           {rulesAndTerms.map((section) => {
             return (
               <section key={section.title}>
@@ -15,7 +15,7 @@ export default function RulesAndTerms() {
                   {section.rules.map((rule, idx) => {
                     return (
                       <li
-                        className="flex font-normal leading-7"
+                        className="flex font-normal leading-5 md:leading-7"
                         key={rule.content}
                       >
                         <div className="w-6 flex-shrink-0">{idx + 1}.</div>
