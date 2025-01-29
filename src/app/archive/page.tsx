@@ -5,7 +5,7 @@
 import { fetchCards } from "@/lib/fetchCards";
 import { CardType } from "@/app/page";
 import Header from "@/components/Header";
-import Thumbnail from "@/components/Thumbnail";
+import ArchiveGallery from "@/components/ArchiveGallery";
 
 export default async function Archive() {
   const fetchedCards = await fetchCards();
@@ -23,11 +23,7 @@ export default async function Archive() {
   return (
     <main className="z-0 flex h-full w-full items-start justify-center overflow-auto bg-basic">
       <Header />
-      <div className="flex flex-wrap justify-center gap-5 pb-24 pt-32">
-        {cards.map((card) => {
-          return <Thumbnail key={card.id} src={card.content} />;
-        })}
-      </div>
+      <ArchiveGallery cards={cards} />
     </main>
   );
 }
