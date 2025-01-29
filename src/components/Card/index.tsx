@@ -53,7 +53,7 @@ export default function Card({
   return (
     <div className="flex h-full w-full flex-col items-center justify-center p-2 lg:p-0">
       <div
-        className={`${cursorClass} z-20 flex aspect-square w-full items-center justify-center [perspective:2000px] lg:h-3/4vh lg:w-3/4vh`}
+        className={`${cursorClass} z-20 flex aspect-square w-full items-center justify-center [perspective:2000px] md:h-3/4vh md:w-3/4vh lg:h-3/4vh lg:w-3/4vh`}
         onMouseMove={handleMouseMove}
       >
         {cards.map((card, index) => {
