@@ -1,4 +1,5 @@
 import Header from "@/components/Header";
+import IndexController from "@/components/IndexController";
 import { FlippableLink } from "@/components/Link";
 
 export default function About() {
