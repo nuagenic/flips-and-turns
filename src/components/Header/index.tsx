@@ -5,14 +5,12 @@ import { useState, useEffect } from "react";
 import Tab from "@/components/Tab";
 import Logo from "@/components/Logo";
 import { tabInfo } from "@/lib/tabInfo";
+import { useHeaderIndexContext } from "@/app/contexts/HeaderIndexContext";
 
-type HeaderProps = {
-  currentIndex?: number;
-  length?: number;
-};
+export default function Header() {
+  const { headerIndex, cardsLength } = useHeaderIndexContext();
 
-export default function Header(props: HeaderProps) {
-  const { currentIndex = 0, length = 1 } = props;
+  // const { currentIndex = 0, length = 1 } = props;
   const [windowWidth, setWindowWidth] = useState<number>(
     typeof window !== "undefined" ? window.innerWidth : 0,
   );
@@ -29,12 +27,11 @@ export default function Header(props: HeaderProps) {
     };
   });
 
-  // length === 1은 동적이지 않은 header에 대한 기본값
+  // 헤더의 너비와 위치를 context에 따라 계산
   const maxWidth = 150;
-  const headerWidth =
-    length === 1 ? 150 : Math.max(windowWidth / length, maxWidth);
+  const headerWidth = Math.max(windowWidth / cardsLength, maxWidth);
   const translateX =
-    length === 1 ? 0 : ((windowWidth - maxWidth) / (length - 1)) * currentIndex;
+    ((windowWidth - maxWidth) / (cardsLength - 1)) * headerIndex;
 
   return (
     <header

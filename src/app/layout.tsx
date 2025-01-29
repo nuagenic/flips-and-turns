@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Head from "next/head";
 import { Viewport } from "next";
 import "./globals.css";
+import { HeaderIndexProvider } from "./contexts/HeaderIndexContext";
 
 export const metadata: Metadata = {
   title: "flips and turns",
@@ -26,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="relative flex h-dvh w-screen min-w-[300px] flex-col">
-        {children}
+        <HeaderIndexProvider>{children}</HeaderIndexProvider>
       </body>
     </html>
   );
