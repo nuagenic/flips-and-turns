@@ -61,7 +61,7 @@ export default function IndexController({ cards, initialIndex }: Props) {
 
   // 헤더 인덱스 및 카드 길이를 context에 주입
   useEffect(() => {
-    if (pathName === "/" && currentIndex !== null) {
+    if ((pathName === "/" || pathName === "/latest") && currentIndex !== null) {
       setHeaderIndex(currentIndex);
       setCardsLength(cards.length);
     }
@@ -75,7 +75,7 @@ export default function IndexController({ cards, initialIndex }: Props) {
   return (
     <>
       <Header />
-      {pathName === "/" && (
+      {(pathName === "/" || pathName === "/latest") && (
         <div className={`flex h-full w-full items-center`} onClick={handleFlip}>
           <Card
             cards={cards}
