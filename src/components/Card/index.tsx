@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 import { useState, useEffect } from "react";
 import { CardType } from "@/app/page";
 import Caption from "@/components/Caption";
@@ -65,15 +67,16 @@ export default function Card({
               className="absolute aspect-square w-full transform bg-white text-xs text-black transition-transform duration-1800 ease-in-out [backface-visibility:hidden] md:text-base"
               style={{ transform: `rotateY(${rotationAngle}deg)` }}
             >
-              {/* 카드 타입에 따라 조건부 렌더링 */}
-              {/* {card.type === "text" ? (
-                <div
-                  className="h-full w-full font-KoPub font-light"
-                  dangerouslySetInnerHTML={{ __html: card.content }}
+              <div className="relative h-full w-full">
+                <Image
+                  src={card.content}
+                  alt={`Card ${index + 1}`}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-contain"
+                  priority={index === currentIndex}
                 />
-              ) : ( */}
-              <img src={card.content} />
-              {/* )} */}
+              </div>
             </div>
           );
         })}
