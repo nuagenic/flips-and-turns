@@ -19,12 +19,14 @@ export default function Card({
   prevIndex,
   flipState,
 }: Props) {
+  console.log(currentIndex);
+  console.log(prevIndex);
+  // console.log(flipState);
   // 각 카드들의 회전 각도를 저장하는 state. 처음 렌더링에서 보여질 카드만 0도(앞면)로 설정.
-  const [rotationAngles, setRotationAngles] = useState<number[]>(() =>
-    Array.from({ length: cards.length }, (_, i) =>
-      i === currentIndex ? 0 : 180,
-    ),
-  );
+  const [rotationAngles, setRotationAngles] = useState<Record<number, number>>({
+    [currentIndex]: 0,
+  });
+  console.log(rotationAngles);
 
   const [cursorClass, setCursorClass] = useState<string>("");
 
@@ -37,20 +39,39 @@ export default function Card({
 
   // 다음 장인지 이전 장인지를 props로 받아, rotationAngles를 map 처리
   useEffect(() => {
-    if (flipState === "next") {
-      setRotationAngles((prevArr) =>
-        prevArr.map((val, idx) =>
-          idx === currentIndex || idx === prevIndex ? val + 180 : val,
-        ),
-      );
-    } else if (flipState === "prev") {
-      setRotationAngles((prevArr) =>
-        prevArr.map((val, idx) =>
-          idx === currentIndex || idx === prevIndex ? val - 180 : val,
-        ),
-      );
-    }
+    setRotationAngles((prev) => {
+      const newAngles = { ...prev };
+
+      const ensure = (index: number) => {
+        if (!(index in newAngles)) newAngles[index] = 180;
+      };
+
+      // Always ensure neighbors are initialized
+      ensure(currentIndex);
+      ensure(currentIndex + 1);
+      ensure(currentIndex - 1);
+
+      if (flipState === "next" && prevIndex !== null) {
+        // ensure(currentIndex - 1);
+        newAngles[prevIndex] += 180; // old card flips to back
+        newAngles[currentIndex] += 180; // new card flips to front
+      }
+
+      if (flipState === "prev" && prevIndex !== null) {
+        // ensure(currentIndex - 1);
+        newAngles[prevIndex] -= 180; // old card flips to back
+        newAngles[currentIndex] -= 180; // new card flips to front
+      }
+
+      return newAngles;
+    });
   }, [currentIndex]);
+
+  const visibleIndices = new Set([
+    currentIndex,
+    currentIndex - 1,
+    currentIndex + 1 < cards.length ? currentIndex + 1 : null,
+  ]);
 
   return (
     <div className="flex h-full w-full flex-col items-center justify-center p-2 lg:p-0">
@@ -59,7 +80,8 @@ export default function Card({
         onMouseMove={handleMouseMove}
       >
         {cards.map((card, index) => {
-          const rotationAngle = rotationAngles[index];
+          if (!visibleIndices.has(index)) return null;
+          const rotationAngle = rotationAngles[index] ?? 180;
 
           return (
             <div
