@@ -46,7 +46,7 @@ export default function IndexController({ cards, initialIndex }: Props) {
     if (isFlipping) {
       const timeout = setTimeout(() => {
         setIsFlipping(false); // 🔓 Unlock after transition
-      }, 1600); // Match transition duration
+      }, 800); // Match transition duration
 
       return () => clearTimeout(timeout);
     }
