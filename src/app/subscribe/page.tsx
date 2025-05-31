@@ -46,8 +46,8 @@ export default function Subscribe() {
           <Form updateItemAction={createSubscription} />
         </div>
         <div className="z-20 break-keep text-xs leading-5 md:text-sm md:leading-6">
-          구독을 하시면 매주 업데이트 되는 flipsandturns의 <br />
-          새로운 단위 작업을 이메일로 확인할 수 있습니다. <br />
+          구독을 하시면 매주 업데이트 되는 flipsandturns의 새로운 단위 작업을
+          이메일로 확인할 수 있습니다. <br />
           200은 해치지 않습니다. 그래도 구독 해지를 원하시면
           <b>
             {" "}
