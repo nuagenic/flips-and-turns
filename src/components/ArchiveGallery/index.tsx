@@ -13,7 +13,7 @@ export default function ArchiveGallery({ cards }: ArchiveGalleryProps) {
   const [selectedCard, setSelectedCard] = useState<string | null>(null);
 
   return (
-    <div className="flex flex-wrap justify-center gap-5 pb-24 pt-32">
+    <div className="grid grid-cols-3 gap-2 pb-24 pt-32 px-2 md:grid-cols-4 md:gap-5 md:px-5 lg:grid-cols-6">
       {cards.map((card) => {
         return (
           <Thumbnail
