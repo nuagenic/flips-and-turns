@@ -5,6 +5,8 @@
 import IndexController from "@/components/IndexController";
 import { fetchCards } from "@/lib/fetchCards";
 
+export const revalidate = 60;
+
 export type CardType = {
   id: string;
   type: "text" | "image";

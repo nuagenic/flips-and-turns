@@ -4,6 +4,8 @@
 
 import { fetchCards } from "@/lib/fetchCards";
 import { CardType } from "@/app/page";
+
+export const revalidate = 60;
 import Header from "@/components/Header";
 import ArchiveGallery from "@/components/ArchiveGallery";
 
