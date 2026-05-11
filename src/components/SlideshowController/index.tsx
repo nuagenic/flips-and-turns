@@ -25,8 +25,9 @@ export default function SlideshowController({ cards }: Props) {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => {
+        if (prev >= cards.length - 1) return prev;
         prevIndexRef.current = prev;
-        return (prev + 1) % cards.length;
+        return prev + 1;
       });
       setFlipState("next");
     }, INTERVAL_MS);
