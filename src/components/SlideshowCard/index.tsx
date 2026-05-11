@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { CardType } from "@/app/page";
 
-const TRANSITION_MS = 2000;
+const TRANSITION_MS = 1800;
 
 type Props = {
   cards: CardType[];

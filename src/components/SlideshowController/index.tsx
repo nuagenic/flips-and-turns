@@ -6,7 +6,7 @@ import { CardType } from "@/app/page";
 import { useHeaderIndexContext } from "@/app/contexts/HeaderIndexContext";
 
 // Must be longer than TRANSITION_MS in SlideshowCard (900ms)
-const INTERVAL_MS = 2000;
+const INTERVAL_MS = 1800;
 
 type Props = { cards: CardType[] };
 
